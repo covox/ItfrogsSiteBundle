@@ -1,0 +1,63 @@
+#parameters:
+#    itfrogs_site.example.class: Itfrogs\SiteBundle\Example
+
+services:
+   itfrogs.site.twig.extension:
+      class: Itfrogs\SiteBundle\Twig\Extension\ItfrogsExtension
+      arguments: [ '@service_container' ]
+      tags:
+        - { name: twig.extension }
+
+   itfrogs.site.helpers.functions:
+      class: Itfrogs\SiteBundle\Helpers\Functions
+      arguments: [ '@service_container' ]
+      tags:
+        - { name: itfrogs.helpers.functions }
+
+   itfrogs.site.helpers.queries:
+      class: Itfrogs\SiteBundle\Helpers\Queries
+      arguments: [ '@service_container' ]
+      tags:
+        - { name: itfrogs.helpers.queries }
+
+   sonata.exchange.admin.dictionary_groups:
+      class: Itfrogs\SiteBundle\Admin\Model\DictionaryGroupsAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Контент, label: Группа Словаря }
+      arguments: [null, Itfrogs\SiteBundle\Entity\DictionaryGroup, SonataAdminBundle:CRUD]
+
+   sonata.exchange.admin.dictionaries:
+      class: Itfrogs\SiteBundle\Admin\Model\DictionariesAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Контент, label: Словарь }
+      arguments: [null, Itfrogs\SiteBundle\Entity\Dictionary, SonataAdminBundle:CRUD]
+
+   sonata.exchange.admin.pages:
+      class: Itfrogs\SiteBundle\Admin\Model\PagesAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: settings, label: Страницы }
+      arguments: [null, Itfrogs\SiteBundle\Entity\Page, SonataAdminBundle:CRUD]
+
+   sonata.exchange.admin.settings:
+      class: Itfrogs\SiteBundle\Admin\Model\SettingsAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: settings, label: Настройки }
+      arguments: [null, Itfrogs\SiteBundle\Entity\Setting, SonataAdminBundle:CRUD]
+
+   sonata.exchange.admin.citations:
+      class: Itfrogs\SiteBundle\Admin\Model\CitationsAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Разное, label: Цитаты }
+      arguments: [null, Itfrogs\SiteBundle\Entity\Citation, SonataAdminBundle:CRUD]
+
+   sonata.exchange.admin.link_groups:
+      class: Itfrogs\SiteBundle\Admin\Model\ListGroupsAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Списки, label: Групы списков }
+      arguments: [null, Itfrogs\SiteBundle\Entity\ListGroup, SonataAdminBundle:CRUD]
+
+   sonata.exchange.admin.links:
+      class: Itfrogs\SiteBundle\Admin\Model\ListsAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Списки, label: Списки }
+      arguments: [null, Itfrogs\SiteBundle\Entity\Lst, SonataAdminBundle:CRUD]

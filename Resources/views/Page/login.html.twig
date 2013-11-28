@@ -1,0 +1,54 @@
+{#% block login_form %}
+    {% if app.user %}
+        <b class="-caret"></b>
+        <ul id="userLinks">
+            <li class="dropdown-menu-header"></li>
+            <small> Привет, {{ app.user.username }}!</small>
+            <b style="position: absolute; top: 23px; right: 6px;" class="btn btn-mini btn-success"><i class="-icon-user"></i></b></a></li>
+            <li class="dropdown-menu-header"></li>
+            {% set is_admin = false %}
+            {% for role in app.user.roles %}
+                {% if (role == 'ROLE_ADMIN') or (role == 'ROLE_SUPER_ADMIN') %}
+                    {% set is_admin = true %}
+                {% endif %}
+            {% endfor %}
+
+            {% if is_admin %}
+                <li class="dropdown-menu-body center white"><a class="-btn -unstyled- -dark-" href="{{ path ('sonata_admin_dashboard') }}">
+                        <small>Админка</small>
+                    </a></li>
+            {% endif %}
+
+            <b style="position: absolute; top: 23px; right: 6px;" class="btn btn-mini btn-success"><i class="-icon-user"></i></b></a></li>
+            <li class="dropdown-menu-body center white"><a class="-btn -unstyled- -dark-" href="{{ path ('fos_user_security_logout') }}">
+                    <small>Выйти</small>
+                </a></li>
+            <li class="dropdown-menu-footer" style="height: 1px;"></li>
+        </ul>
+    {% else %}
+        <b class="-caret"></b>
+        <ul id="loginForm">
+            <li class="dropdown-menu-header"></li>
+            <li class="dropdown-menu-body center"><br>
+
+                <form class="-form _vertical_" action="{{ path("fos_user_security_check") }}" method="post" id="login">
+                    <label for="username">Логин</label>
+                            <span class="-form-field _tiny">
+                                <input maxlength="255" type="text" id="username" name="_username" value=""/>
+                            </span>
+                    <label for="password">Пароль</label>
+                            <span class="-form-field _tiny">
+                                <input maxlength="255" type="password" id="password" name="_password"/>
+                            </span>
+                    <label>
+                        <a class="btn-primary btn" onclick="$('form#login').submit();">Вход</a>
+                        <a class="-btn -unstyled- -dark-" href="{{ path ('fos_user_registration_register') }}">Регистрация</a>
+                    </label>
+                    <br>
+                </form>
+                <div class="cleafix"></div>
+            </li>
+            <li class="dropdown-menu-footer" style="height: 1px;"></li>
+        </ul>
+    {% endif %}
+{% endblock %#}

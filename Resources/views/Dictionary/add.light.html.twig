@@ -1,0 +1,66 @@
+{% extends "ItfrogsSiteBundle::layout.light.html.twig" %}
+
+{% block title "Словари - Добавление" %}
+
+    {% block content %}
+
+        <div class="well well-large">
+            <form class="form-horizontal" action="{{ path('itfrogs_site_handler_add_dictionary_row') }}" enctype="multipart/form-data" method="post">
+
+                <div class="control-group">
+                    {{ form_errors(form) }}
+                </div>
+
+
+                <div class="control-group">
+                    {{ form_label(form.dictGroup, 'Выберите словарь *') }}
+                    <div class="controls">
+                        {{ form_errors(form.dictGroup) }}
+                        {{ form_widget(form.dictGroup) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    {{ form_label(form.source, 'Источник *') }}
+                    <div class="controls">
+                        {{ form_errors(form.source) }}
+                        {{ form_widget(form.source) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    {{ form_label(form.translate, 'Перевод *') }}
+                    <div class="controls">
+                        {{ form_errors(form.translate) }}
+                        {{ form_widget(form.translate) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    {{ form_label(form.description, 'Дополнение') }}
+                    <div class="controls">
+                        {{ form_errors(form.description) }}
+                        {{ form_widget(form.description) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    {{ form_label(form.captcha, 'Проверочный код') }}
+                    <div class="controls">
+                        {{ form_errors(form.captcha) }}
+                        {{ form_widget(form.captcha) }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    {{ form_label(form.save, 'Отправить') }}
+                    <div class="controls">
+                        {{ form_widget(form.save) }}
+                    </div>
+                </div>
+                {{ form_rest(form) }}
+                {#<button class="btn btn-primary" type="submit">Отправить</button>#}
+            </form>
+            <span class="stars">Поля, отмеченные *, обязательны к заполнению</span>
+        </div>
+
+    {% endblock %}

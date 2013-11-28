@@ -1,0 +1,293 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #F7F7F7;
+	font-family: Verdana, sans-serif !important;
+}
+
+#header {
+    background: url(/bundles/itfrogslanding/images/topbg.jpg) repeat-x;
+    display: block;
+    border-bottom: 2px solid #5B5B5B;
+    width: 607px;
+    height: 67px;
+}
+
+.logo {
+    display: block;
+    margin-left: 5px;
+    margin-top: 3px;
+    float: left;
+    width: 253px;
+    height: 61px;
+}
+
+.top-menu {
+    float: left;
+    display: block;
+    overflow: hidden;
+    width: auto;
+    height: 65px;
+    background: url(/bundles/itfrogslanding/images/shadow.png) left no-repeat;
+    padding-left: 7px;
+}
+
+.top-menu ul {
+	margin-top: 12px;
+    list-style-type: none;
+    width: auto;
+}
+
+.top-menu li {
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    background: #2156AC;
+    padding: 5px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #000;
+    height: 43px;
+    width: auto;
+    line-height: 28px;
+    border: 1px solid black;
+    font-size: 15px;
+    font-family: Verdana;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.top-menu li:hover {
+    background: #2D72E2;
+    color: #F6AE2B;
+}
+
+.container {
+    width: 607px;
+    min-height: 450px;
+    display: block;
+    border-top: 1px solid #5B5B5B;
+    background: url(/bundles/itfrogslanding/images/fon_main.png);
+    font-size: 13px;
+    font-family: Verdana, sans-serif;
+}
+
+.footer {
+    width: 607px;
+    height: 28px;
+    display: block;
+    text-align: center;
+    line-height: 26px;
+    font-size: 11px;
+    font-weight: normal;
+    font-family: Verdana, sans-serif;
+    border-top: 2px solid #5B5B5B;
+    background: url(/bundles/itfrogslanding/images/topbg.jpg) repeat-x;;
+}
+
+.footer-link {
+    color: rgb(0, 58, 162);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.body-space {
+    height: 2px;
+    display: block;
+    width: 607px;
+    background: #F7F7F7;
+}
+
+.required, label {
+    display: inline-block;
+    cursor: pointer;
+    height: 18px;
+    line-height: 27px;
+	font-weight: normal;
+}
+
+.required:hover, label:hover {
+    color: #ED9100;
+}
+
+textarea#form_source, textarea#form_translate, textarea#form_description {
+    width: 576px;
+    max-width: 576px;
+    min-width: 576px;
+    height: 45px;
+    min-height: 45px;
+    border: 1px solid rgba(0,0,0,0.8);
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.7);
+}
+
+textarea#form_source:hover, textarea#form_source:focus, textarea#form_translate:hover, textarea#form_translate:focus, textarea#form_description:hover, textarea#form_description:focus {
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.9);
+}
+
+div.controls img {
+    width: 100px;
+    height: 40px;
+    float: left;
+}
+
+input#form_captcha {
+    width: 98px;
+    height: 40px;
+    border: 1px solid rgba(0,0,0,0.8);
+    margin-left: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.7);
+	text-align: center;
+	font-size: 18px;
+}
+
+input#form_captcha:hover, input#form_captcha:focus {
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.9);
+}
+
+h3 {
+    margin-left: 12px;
+	margin-top: 6px;
+	margin-bottom: 0;
+}
+
+button#form_save {
+    cursor: pointer;
+    display: inline-block;
+    background: #2156AC;
+    padding: 5px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #000;
+    height: 40px;
+    width: 202px;
+    line-height: 28px;
+    border: 1px solid black;
+    font-size: 15px;
+    font-family: Verdana;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+    border-radius: 4px;
+    margin-top: 7px;
+}
+
+button#form_save:hover {
+    background: #2D72E2;
+    color: #F6AE2B;
+}
+
+.stars {
+    font-size: 10px;
+    font-weight: normal;
+    font-family: Verdana, sans-serif;
+    display: block;
+	margin-top: 5px;
+}
+
+#art-main {
+	width: 607px;
+	height: 67px;
+	margin: 0;
+	padding: 0;
+}
+
+.art-sheet {
+	height: 450px;
+}
+
+.well {
+	padding: 15px;
+	background: none;
+	border: 0 none;
+	border-radius: 0;
+	box-shadow: 0 0 0;
+}
+
+.content {
+	border-bottom: 1px solid #5B5B5B;
+	min-height: 450px;
+}
+
+select#form_dictGroup {
+	border: 1px solid rgba(0,0,0,0.8);
+}
+
+.responsive .art-sheet { 
+margin-left: 0 !important;
+margin-right: 0 !important;
+}
+
+#s2id_autogen1, select , #select2-drop-mask  {
+border: 1px solid black !important;
+}
+
+input#search.search-input {
+border: 1px solid black;
+padding-left: 2px;
+padding-right: 2px;
+box-shadow: inset 0 0 2px rgba(0,0,0,0.7);
+text-align: left;
+font-size: 14px;
+height: 40px;
+width: 497px;
+margin-left: 12px;
+}
+
+input#search.search-input:hover, input#search.search-input:focus {
+box-shadow: inset 0 0 4px rgba(0,0,0,0.9);
+}
+
+.search-submit {
+height: 40px;
+line-height: 33px;
+width: 80px;
+background: url(http://cs425823.vk.me/v425823746/32c3/6eaI6Ggz460.jpg);
+border: 1px solid black;
+display: inline;
+font-size: 15px;
+box-shadow: inset 0 0 2px rgba(0,0,0,0.7);
+}
+
+.search-submit:hover, .search-submit:focus  {
+box-shadow: inset 0 0 4px rgba(0,0,0,0.9);
+}
+
+.real-submit {
+    cursor: pointer;
+    display: inline-block;
+    background: #2156AC;
+    padding: 5px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #000;
+    height: 40px;
+    width: 98%;
+    line-height: 28px;
+    border: 1px solid black;
+    font-size: 15px;
+    font-family: Verdana;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+    border-radius: 4px;
+    margin-top: 7px;
+}
+
+.real-submit:hover, .real-submit:focus {
+    background: #2D72E2;
+    color: #F6AE2B;
+}
+
+.real {
+display: block;
+height: 396px;
+text-align: center;
+}
+
+.real-texts {
+padding-top: 25%;
+padding-bottom: 25%;
+}
+
+.btns {
+margin-left: 12px;
+display: block;
+}

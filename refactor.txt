@@ -1,0 +1,3 @@
+sed -e 's/Site/Site/g' -e 's/site/site/g' /path/to/file
+
+find /var/www/kalmykia/data/www/proverbs.forum.kalmykia.ru/symfony/src/Itfrogs/SiteBundle -type f -exec sed -i -e 's/Site/Site/g' -e 's/site/site/g' {} \;

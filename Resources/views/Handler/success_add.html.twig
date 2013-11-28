@@ -1,0 +1,26 @@
+{% extends "ItfrogsSiteBundle::layout.html.twig" %}
+
+
+    {% block title "Главная" %}
+
+        {% block content_header 'Главная' %}
+
+            {% block header %}
+
+            {% endblock %}
+
+            {% block content %}
+
+                <h3>
+                    Ваша пословица успешно принята.
+                </h3>
+
+                <div id="saying_back">
+                    <a href="{{ path('itfrogs_site_default') }}">Вернуться на главную</a>
+                </div>
+
+            {% endblock %}
+
+            {% block footer %}
+
+            {% endblock %}

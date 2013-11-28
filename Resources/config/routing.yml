@@ -1,0 +1,34 @@
+itfrogs_site_homepage:
+    prefix:  /
+    type:     annotation
+    resource: "@ItfrogsSiteBundle/Controller/DefaultController.php"
+
+itfrogs_site_page:
+    prefix:  /page/
+    type:     annotation
+    resource: "@ItfrogsSiteBundle/Controller/PageController.php"
+
+itfrogs_site_citation:
+    prefix:  /citation/
+    type:     annotation
+    resource: "@ItfrogsSiteBundle/Controller/CitationController.php"
+
+itfrogs_site_list:
+    prefix:  /list/
+    type:     annotation
+    resource: "@ItfrogsSiteBundle/Controller/ListController.php"
+
+itfrogs_site_dictionary:
+    prefix:  /dictionary/
+    type:     annotation
+    resource: "@ItfrogsSiteBundle/Controller/DictionaryController.php"
+
+itfrogs_site_ajax:
+    prefix:  /ajax/
+    type:     annotation
+    resource: "@ItfrogsSiteBundle/Controller/AjaxController.php"
+
+itfrogs_site_handler:
+    prefix:  /handler/
+    type:     annotation
+    resource: "@ItfrogsSiteBundle/Controller/HandlerController.php"

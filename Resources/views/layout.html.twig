@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"><head><!-- Created by Artisteer v4.1.0.60046 -->
+
+    <!--[if lt IE 7]>
+    <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+    <!--[if IE 7]>
+    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+    <!--[if IE 8]>
+    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+    <!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+    <!--[if gt IE 8]><!-->
+    <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+            <meta name="description" content="">
+            <meta name="author" content="">
+            <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+            <title>{% block title %}{% endblock %} / калмыцкие пословицы</title>
+            <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}"/>
+
+            <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+            <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{{ asset('bundles/itfrogssite/css/style.ie7.css') }}" media="screen" /><![endif]-->
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/itfrogssite/css/bootstrap.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/itfrogssite/css/style.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/itfrogssite/css/style.responsive.css') }}">
+
+            <script src="{{ asset('bundles/itfrogssite/js/jquery.js') }}"></script>
+            <script>
+                var jQuery = jQuery.noConflict();
+            </script>
+            <script src="{{ asset('bundles/itfrogssite/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/itfrogssite/js/bootstrap-modal.js') }}"></script>
+
+            <link href="{{ asset('bundles/itfrogssite/js/select2/select2.css') }}" rel="stylesheet"/>
+            <script src="{{ asset('bundles/itfrogssite/js/select2/select2.min.js') }}"></script>
+            <script>
+                var appenv = '{{ app.environment }}';
+
+                if (appenv == 'dev') {
+                    appenvLink = '/app_dev.php/'
+                } else {
+                    appenvLink = '/';
+                }
+                jQuery(document).ready(function() {
+
+
+                    jQuery("#form_dictGroup").select2({
+                        placeholder: "Выберите словарь",
+                        allowClear: true
+                    });
+                });
+            </script>
+
+            {# <script src="http://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script> #}
+
+
+            <style>
+            </style>
+
+        {% endblock %}
+
+    </head>
+    <body>
+
+    <div id="art-main light-main">
+
+<div class="topmenu-light">
+<div class="title-text">
+Калмыцкие словари
+</div>
+<ul class="menu">
+<li class="liter"><a href="">Меню</a>
+{% render url("itfrogs_site_list_show_slug", { 'slug': 'navigation' }) %}
+</li>
+</ul>
+</div>
+		
+		
+                {% block header %}
+                {% endblock %}
+
+
+            <div class="body-space light-space"></div>
+
+            <section class="container light-container">
+                <div class="content light-content">
+
+                    {% if app.user %}
+                        {% set is_admin = false %}
+                        {% for role in app.user.roles %}
+                            {% if (role == 'ROLE_ADMIN') or (role == 'ROLE_SUPER_ADMIN') %}
+                                {% set is_admin = true %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if is_admin %}
+                            <li class="dropdown-menu-body center white"><a target="_blank" class="-btn -unstyled- -dark-" href="/admin/dashboard">
+                                    <small>Админка</small>
+                                </a></li>
+                        {% endif %}
+                    {% endif %}
+				
+                    {% block content %}{% endblock %}
+                    {% block fos_user_content %}{% endblock fos_user_content %}
+                </div>
+                <!-- /symfony-content -->
+
+            </section>
+
+    </div>
+
+	<div class="main-footer"><a href="http://snark.pro">snark.pro</a></div>
+	
+    </body>
+    </html>

@@ -1,0 +1,236 @@
+{% extends "ItfrogsSiteBundle::layout.html.twig" %}
+
+{% block title "Пословицы - Поиск" %}
+
+    {% block content %}
+        <div class="showoffer">
+            <div id="catalogueOffers">
+			
+                <div class="catalogueTable">
+                    <div class="catalogueColumnOne">
+
+                        <div id="menu" class="accordion catalogueMenu">
+                            <span class="big"></span>
+                            {% for category in categories %}
+
+                                <div class="child">
+                                    <a data-id="{{ category.id }}" href="#">{{ category.name }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <div class="catalogueColumnTwo">
+
+                        <p>Выбранная категория: <span class="heading"></span><span class="mdash"></span><span class="type_of_offer"></span></p>
+
+                        <div id="oDeals" class="offersTableContainer">
+                            <table class="sordTable">
+                                <tr>
+                                    <td width="100%" class="sort-by" style="font-size: 10px;">Сортировать по:</td>
+                                    <td width="100%">
+                                        <table class="sord" width="100%" style="font-size: 10px;">
+                                            <tr width="100%">
+                                                <td><a data-table="#offersTable" href="javascript:void(0)" name="id" class="desc"><i class="-icon-sort"></i> <span class="sort"> дате добавления </span> </a></td>
+                                                <td><a data-table="#offersTable" href="javascript:void(0)" name="source" class="asc"><i class="-icon-caret-up"></i> <span class="sort"> источнику </span> </a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <!-- <td width="10%">&nbsp;</td> -->
+                                </tr>
+                            </table>                            
+                            <table id="offersTable" class="offersTable">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <style type="text/css" title="currentStyle">
+            @import "{{ asset('bundles/itfrogssite/js/DataTables-1.9.4/media/css/jquery.dataTables_itfrogs.css') }}";
+        </style>
+		<style type="text/css" title="currentStyle">
+            @import "{{ asset('bundles/itfrogssite/css/maxmertkit/maxmertkit-components.css') }}";
+        </style>
+		<style type="text/css" title="currentStyle">
+            @import "{{ asset('bundles/itfrogssite/css/maxmertkit/maxmertkit.css') }}";
+        </style>	
+        <script src="{{ asset('bundles/itfrogssite/js/DataTables-1.9.4/media/js/jquery.dataTables.js') }}"></script>
+        <script>
+
+            jQuery(function () {
+                jQuery.fn.myDataTable = function (sidx, sord, catid, url, type, rating) {
+                    try {
+                        jQuery(this).dataTable({
+                            "bProcessing": true,
+                            "bServerSide": true,
+                            "sAjaxSource": url,
+                            "iDisplayLength": 6,
+                            "sPaginationType": "full_numbers",
+                            "oLanguage": {
+                                "sProcessing": "Загрузка....",
+                                "sLengthMenu": 'Показать по <select>'+
+                                        '<option selected = "1" value="10">10</option>'+
+                                        '<option value="5">5</option>'+
+										'<option value="20">20</option>'+
+                                        '</select> записей',
+//                            "sLengthMenu": "Показать _MENU_",
+                                "sZeroRecords": "Ничего не найдено",
+                                "sInfo": "с _START_ по _END_ из _TOTAL_",
+                                "sInfoEmpty": " 0 ",
+                                "sInfoFiltered": "",
+                                "sInfoPostFix": "",
+                                "sSearch": "Поиск:",
+                                "oPaginate": {
+                                    "sFirst": "<<",
+                                    "sPrevious": "<",
+                                    "sNext": ">",
+                                    "sLast": ">>"
+                                },
+                                "sUrl": ""
+                            },
+                            "fnDrawCallback": function (oSettings) {
+                                if (oSettings._iDisplayLength > oSettings.fnRecordsDisplay()) {
+                                    jQuery(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+                                    jQuery(oSettings.nTableWrapper).find('.dataTables_info').hide();
+                                    jQuery(oSettings.nTableWrapper).find('.dataTables_length').hide();
+                                }
+                            }
+                            /*
+                             "fnDrawCallback":function(){
+                             sanitize(this);
+                             }*/
+                        });
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+            });
+
+            var offersTable, entity, sidx, sord, catid, type, url, rating;
+            var showvariants = false;
+            var heading = jQuery("span.heading");
+            var mdash = jQuery("span.mdash");
+            var type_of_offer = jQuery("span.type_of_offer");
+            var resetting = '<a title="Отменить выборку" href="javascript:void(0);" onclick="default_datatable();" class="btn btn-mini"><i class="-icon-remove"></i></a> &nbsp;';
+
+            var default_datatable = function () { //init datatable
+                offersTable = "#offersTable";
+                entity = "dictionary/search";
+                sidx = "id";
+                sord = "desc";
+                catid = "1";
+                type = "";
+                rating = "";
+                url = appenvLink + "ajax/"+ entity +"/?sidx=" + sidx + "&sord=" + sord + "&catid=" + catid + "&type=" + type;
+                jQuery(offersTable).dataTable().fnDestroy();
+                jQuery(offersTable).myDataTable(sidx, sord, catid, url, type, rating);
+                jQuery("thead").hide();
+                jQuery("a[name=fullprice]").parent().hide();
+                heading.text('');
+                mdash.text('');
+                type_of_offer.text('');
+            };
+
+            toggleSort = function () {
+                try {
+                    var asort = jQuery("a.sort")
+                    if (jQuery(asort).hasClass("desc")) {
+                        sord = jQuery(asort).removeClass("desc").addClass("asc");
+                    }
+                    else if (jQuery(asort).hasClass("asc")) {
+                        sord = jQuery(asort).removeClass("asc").addClass("desc");
+                    }
+                } catch (e) {
+
+                }
+            };
+
+            jQuery('div.child a').click(function () { // левое меню
+                catid = jQuery(this).data("id");
+                entity = "dictionary/search";
+                showvariants = true;
+                url = appenvLink + "ajax/"+ entity +"/?showvariants=1&sidx=" + sidx + "&sord=" + sord + "&catid=" + catid + "&type=" + type;
+                jQuery(offersTable).dataTable().fnDestroy();
+                jQuery(offersTable).myDataTable(sidx, sord, catid, url, type, rating);
+                jQuery("thead").hide();
+                jQuery("a[name=fullprice]").parent().show();
+                heading.html(resetting + jQuery(this).text());
+
+                if (heading.text().length && type_of_offer.text().length) mdash.html("&nbsp;&mdash;&nbsp;");
+                else mdash.text();
+
+                return false;
+            });
+
+            jQuery("table.sord a").click(function () {  // сортировки
+                sidx = jQuery(this).attr("name");
+                offersTable = jQuery(this).data("table");
+                jQuery("table.sord a").children("i").removeClass().addClass("-icon-sort");
+                jQuery(this).children("i").removeClass("-icon-sort");
+                if (jQuery(this).hasClass("desc")) {
+                    sord = "asc";
+                    jQuery(this).removeClass().addClass("asc").children("i").removeClass().addClass("-icon-caret-down");
+                }
+                else if (jQuery(this).hasClass("asc")) {
+                    sord = "desc";
+                    jQuery(this).removeClass().addClass("desc").children("i").removeClass().addClass("-icon-caret-up");
+                }
+                var url = appenvLink + "ajax/"+ entity +"/?sidx=" + sidx + "&sord=" + sord + "&catid=" + catid + "&type=" + type;
+
+                try {
+                    jQuery(offersTable).dataTable({
+                        "bFilter": false,
+                        "bDestroy": true
+                    }).fnDestroy();
+
+                    jQuery(offersTable).myDataTable(sidx, sord, catid, url, type, rating);
+                    jQuery("thead").hide();
+
+                } catch (e) {
+                    console.log(e);
+                }
+
+                return jQuery(this).addClass(sord);
+            });
+
+            jQuery(".menuTabs a").click(function () { // табы
+                offersTable = jQuery(this).data("table");
+                type = jQuery(this).data("type");
+                var url = appenvLink + "ajax/" + entity + "/?sidx=" + sidx + "&sord=" + sord + "&catid=" + catid + "&type=" + type;
+                jQuery(offersTable).dataTable().fnDestroy();
+                jQuery(offersTable).myDataTable(sidx, sord, catid, url, type, rating);
+                jQuery("thead").hide();
+                type_of_offer.text(jQuery(this).text());
+
+                if (heading.text().length && type_of_offer.text().length) mdash.html("&nbsp;&mdash;&nbsp;");
+                else mdash.text();
+
+                return false;
+            });
+
+            jQuery(function () {
+                default_datatable();
+                jQuery("table.sordTable").show();
+            });
+        </script>
+
+    {% endblock %}

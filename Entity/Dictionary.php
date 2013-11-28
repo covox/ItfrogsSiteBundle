@@ -1,0 +1,221 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: snark | itfrogs.ru
+ * Date: 13.10.13
+ * Time: 1:17
+  */
+
+namespace Itfrogs\SiteBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="lnd_dictionaries")
+ */
+
+class Dictionary {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="DictionaryGroup", inversedBy="dictionaries")
+     * @ORM\JoinColumn(name="dictGroupId", referencedColumnName="id")
+     */
+    protected $dictGroup;
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $source;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $translate;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $active;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $dictGroupId;
+
+
+    protected $captha;
+    public function getCaptcha() {
+        return $this->captha;
+    }
+    public function setCaptcha($captha) {
+        $this->captha = $captha;
+        return $this;
+    }
+
+    public function __construct() {
+        $this->active = false;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Dictionary
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return Dictionary
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string 
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * Set translate
+     *
+     * @param string $translate
+     * @return Dictionary
+     */
+    public function setTranslate($translate)
+    {
+        $this->translate = $translate;
+    
+        return $this;
+    }
+
+    /**
+     * Get translate
+     *
+     * @return string 
+     */
+    public function getTranslate()
+    {
+        return $this->translate;
+    }
+
+    /**
+     * Set dictGroupId
+     *
+     * @param integer $dictGroupId
+     * @return Dictionary
+     */
+    public function setDictGroupId($dictGroupId)
+    {
+        $this->dictGroupId = $dictGroupId;
+    
+        return $this;
+    }
+
+    /**
+     * Get dictGroupId
+     *
+     * @return integer 
+     */
+    public function getDictGroupId()
+    {
+        return $this->dictGroupId;
+    }
+
+    /**
+     * Set dictGroup
+     *
+     * @param \Itfrogs\SiteBundle\Entity\DictionaryGroup $dictGroup
+     * @return Dictionary
+     */
+    public function setDictGroup(\Itfrogs\SiteBundle\Entity\DictionaryGroup $dictGroup = null)
+    {
+        $this->dictGroup = $dictGroup;
+    
+        return $this;
+    }
+
+    /**
+     * Get dictGroup
+     *
+     * @return \Itfrogs\SiteBundle\Entity\DictionaryGroup 
+     */
+    public function getDictGroup()
+    {
+        return $this->dictGroup;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Dictionary
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}
