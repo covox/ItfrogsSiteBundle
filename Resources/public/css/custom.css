@@ -2,7 +2,7 @@
 
 #art-main
 {
-    background: #FFFFFF url('/bundles/itfrogslanding/images/page.png') fixed;
+    background: #FFFFFF url('/bundles/itfrogssite/images/page.png') fixed;
     margin:0 auto;
     font-size: 13px;
     font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
@@ -484,7 +484,7 @@ li p, .art-postcontent li p, .art-blockcontent li p
 {
     margin:0 auto;
     height: 100px;
-    /*   background-image: url('/bundles/itfrogslanding/images/object1008194872.png'),url('/bundles/itfrogslanding/images/object1966455446.png'), url('/bundles/itfrogslanding/images/header.png'); */
+    /*   background-image: url('/bundles/itfrogssite/images/object1008194872.png'),url('/bundles/itfrogssite/images/object1966455446.png'), url('/bundles/itfrogssite/images/header.png'); */
     background-position: 600px 43px,4px 14px, 0 0;
     background-repeat: no-repeat;
     position: relative;
@@ -494,7 +494,7 @@ li p, .art-postcontent li p, .art-blockcontent li p
 
 .responsive .art-header
 {
-    /*   background-image: url('/bundles/itfrogslanding/images/header.png'); */
+    /*   background-image: url('/bundles/itfrogssite/images/header.png'); */
     background-position: center center;
 }
 
@@ -612,7 +612,7 @@ div.art-block img
 }
 .art-block ul>li:before
 {
-    content:url('/bundles/itfrogslanding/images/blockbullets.png');
+    content:url('/bundles/itfrogssite/images/blockbullets.png');
     margin-right:6px;
     bottom: 2px;
     position:relative;
@@ -827,7 +827,7 @@ form.art-search input[type="submit"], input.art-search-button, a.art-search-butt
     left:auto;
     display:block;
     border:none;
-    background:url('/bundles/itfrogslanding/images/searchicon.png') center center no-repeat;
+    background:url('/bundles/itfrogssite/images/searchicon.png') center center no-repeat;
     width:24px;
     height: 100%;
     padding:0;
@@ -1375,7 +1375,7 @@ pre
 
 .art-postdateicon:before
 {
-    content:url('/bundles/itfrogslanding/images/postdateicon.png');
+    content:url('/bundles/itfrogssite/images/postdateicon.png');
     margin-right:6px;
     position:relative;
     display:inline-block;
@@ -1392,7 +1392,7 @@ pre
 
 .art-postauthoricon:before
 {
-    content:url('/bundles/itfrogslanding/images/postauthoricon.png');
+    content:url('/bundles/itfrogssite/images/postauthoricon.png');
     margin-right:6px;
     position:relative;
     display:inline-block;
@@ -1409,7 +1409,7 @@ pre
 
 .art-postediticon:before
 {
-    content:url('/bundles/itfrogslanding/images/postediticon.png');
+    content:url('/bundles/itfrogssite/images/postediticon.png');
     margin-right:6px;
     bottom: 2px;
     position:relative;
@@ -1426,7 +1426,7 @@ pre
 
 .art-postcontent ul>li:before,  .art-post ul>li:before,  .art-textblock ul>li:before
 {
-    content:url('/bundles/itfrogslanding/images/postbullets.png');
+    content:url('/bundles/itfrogssite/images/postbullets.png');
     margin-right:10px;
     bottom: 2px;
     position:relative;
@@ -1493,7 +1493,7 @@ pre
 
 blockquote
 {
-    background: #EFF2F5 url('/bundles/itfrogslanding/images/postquote.png') no-repeat scroll;
+    background: #EFF2F5 url('/bundles/itfrogssite/images/postquote.png') no-repeat scroll;
     padding:10px 10px 10px 47px;
     margin:10px 0 0 25px;
     color: #0D1216;
@@ -1671,7 +1671,7 @@ blockquote p,
 
 .art-rss-tag-icon
 {
-    background:  url('/bundles/itfrogslanding/images/footerrssicon.png') no-repeat scroll;
+    background:  url('/bundles/itfrogssite/images/footerrssicon.png') no-repeat scroll;
     margin:0 auto;
     min-height:32px;
     min-width:32px;
@@ -1687,7 +1687,7 @@ blockquote p,
 
 .art-facebook-tag-icon
 {
-    background:  url('/bundles/itfrogslanding/images/footerfacebookicon.png') no-repeat scroll;
+    background:  url('/bundles/itfrogssite/images/footerfacebookicon.png') no-repeat scroll;
     margin:0 auto;
     min-height:32px;
     min-width:32px;
@@ -1703,7 +1703,7 @@ blockquote p,
 
 .art-twitter-tag-icon
 {
-    background:  url('/bundles/itfrogslanding/images/footertwittericon.png') no-repeat scroll;
+    background:  url('/bundles/itfrogssite/images/footertwittericon.png') no-repeat scroll;
     margin:0 auto;
     min-height:32px;
     min-width:32px;
@@ -1719,7 +1719,7 @@ blockquote p,
 
 .art-footer ul>li:before
 {
-    content:url('/bundles/itfrogslanding/images/footerbullets.png');
+    content:url('/bundles/itfrogssite/images/footerbullets.png');
     margin-right:6px;
     bottom: 2px;
     position:relative;

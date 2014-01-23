@@ -6,7 +6,7 @@ body {
 }
 
 #header {
-    background: url(/bundles/itfrogslanding/images/topbg.jpg) repeat-x;
+    background: url(/bundles/itfrogssite/images/topbg.jpg) repeat-x;
     display: block;
     border-bottom: 2px solid #5B5B5B;
     width: 607px;
@@ -28,7 +28,7 @@ body {
     overflow: hidden;
     width: auto;
     height: 65px;
-    background: url(/bundles/itfrogslanding/images/shadow.png) left no-repeat;
+    background: url(/bundles/itfrogssite/images/shadow.png) left no-repeat;
     padding-left: 7px;
 }
 
@@ -65,7 +65,7 @@ body {
     min-height: 450px;
     display: block;
     border-top: 1px solid #5B5B5B;
-    background: url(/bundles/itfrogslanding/images/fon_main.png);
+    background: url(/bundles/itfrogssite/images/fon_main.png);
     font-size: 13px;
     font-family: Verdana, sans-serif;
 }
@@ -80,7 +80,7 @@ body {
     font-weight: normal;
     font-family: Verdana, sans-serif;
     border-top: 2px solid #5B5B5B;
-    background: url(/bundles/itfrogslanding/images/topbg.jpg) repeat-x;;
+    background: url(/bundles/itfrogssite/images/topbg.jpg) repeat-x;;
 }
 
 .footer-link {
